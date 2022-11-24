@@ -24,7 +24,6 @@ public class Snake {
         for(int i = 0; i < 10; i++){
             snake.add(new Circle(x,y,height,width));
             x-=25;
-            System.out.println(snake.get(i).x + " " + snake.get(i).y);
         }
     }
 
@@ -57,8 +56,6 @@ public class Snake {
             directionFlag = 4;
         }
 
-        //moving the head
-
         //moving the rest of the body in a gradual way
         for(int i = snake.size()-1; i > 0; i--){
             snake.get(i).x = snake.get(i-1).x;
@@ -76,30 +73,18 @@ public class Snake {
 
     public void Eat(Circle food){
         foodEaten++;
-        /*
-        if(snake.get(snake.size()-1).directionFlag == 1){
-            food.x = snake.get(snake.size()-1).x;
-            food.y = snake.get(snake.size()-1).y + 5;
+
+        //to make the snake grow faster
+        for(int i = 0; i < 5; i++){
+            Circle foodMore = new Circle(food.x,food.y,snake.get(0).width,snake.get(0).height);
+            snake.add(foodMore);
         }
-        else if(snake.get(snake.size()-1).directionFlag == 2){
-            food.x = snake.get(snake.size()-1).x;
-            food.y = snake.get(snake.size()-1).y - 5;
-        }
-        else if(snake.get(snake.size()-1).directionFlag == 3){
-            food.x = snake.get(snake.size()-1).x + 5;
-            food.y = snake.get(snake.size()-1).y;
-        }
-        else if(snake.get(snake.size()-1).directionFlag == 4){
-            food.x = snake.get(snake.size()-1).x - 5;
-            food.y = snake.get(snake.size()-1).y;
-        }
-         */
-        snake.add(food);
+
+
     }
 
     public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == KeyEvent.VK_UP && directionFlag != 2){
-            //snake.get(0).directionFlag = 1;
             directionFlag = 1;
             for(int i = 0; i < snake.size()-1; i++){
                 snake.get(i).setDirectionFlag(1);

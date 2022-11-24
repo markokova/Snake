@@ -40,23 +40,4 @@ public class Circle extends Rectangle {
         this.y += yVelocity;
     }
 
-
-    /*
-    public void move(){
-        if(directionFlag == 1){
-            y -= initialSpeed;
-        }
-        else if(directionFlag == 2){
-            y += initialSpeed;
-        }
-        else if(directionFlag == 3){
-            x -= initialSpeed;
-        }
-        else if(directionFlag == 4){
-            x += initialSpeed;
-        }
-    }
-     */
-
-
 }

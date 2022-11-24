@@ -32,8 +32,8 @@ public class Snake {
         Graphics2D g2d = (Graphics2D)g;
 
         for(int i = 0; i < snake.size(); i++){
-            if(i == 0){
-                g2d.setPaint(Color.blue);
+            if(i < 3){
+                g2d.setPaint(new Color(4, 125, 215));
                 g2d.fillOval(snake.get(i).x,snake.get(i).y,snake.get(i).width,snake.get(i).height);
             }
             else{
@@ -117,5 +117,4 @@ public class Snake {
             move();
         }
     }
-
 }

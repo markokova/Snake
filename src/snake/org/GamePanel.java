@@ -61,6 +61,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void draw(Graphics g){
         snake.draw(g);
         food.draw(g);
+
     }
 
     public void drawGameOverScreen(Graphics g){
@@ -100,7 +101,12 @@ public class GamePanel extends JPanel implements Runnable{
             if ((snake.snake.get(0).x == snake.snake.get(i).x) && (snake.snake.get(0).y == snake.snake.get(i).y)) {
                 drawGameOverScreen(graphics);
                 System.out.println("Game over");
-                gameFlag = false;
+                for(int j = snake.snake.size() - 1; j > 10; j--){
+                    snake.snake.remove(snake.snake.get(j));
+                }
+                snake.foodEaten = 0;
+                break;
+                //gameFlag = false;
             }
         }
     }
